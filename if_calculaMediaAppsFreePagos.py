@@ -34,14 +34,14 @@ arquivo = open('AppleStore.csv', 'r', encoding="utf8")  # abre arquivo csv, e se
 ler = csv.reader(arquivo, delimiter=',')                # lê o arquivo e usa virgula para separar as colunas
 appStoreLista = list(ler)
 
-free_apps_ratings = []
+free_apps_ratings = []                              # cria lista vazia
 # non_free_apps_ratings = []
-for row in appStoreLista[1:]:
-    rating = float(row[8])
-    price = float(row[5])
-    if price == 0.0:
-        free_apps_ratings.append(rating)
+for row in appStoreLista[1:]:                       # percorre lista appStoreLista
+    rating = float(row[8])                          # no loop, atribui o valor da avaliação, indice 8 da lista, na variável rating
+    price = float(row[5])                           # no loop, atribui o valor do preço, indice 5 da lista, na variável price
+    if price == 0.0:                                # teste lógico para saber se a variável price é zero
+        free_apps_ratings.append(rating)            # se sim, inseri o valor guardado em rating, na lista free_apps_rating
         #non_free_apps_ratings.append(rating)
 #avg_rating_non_free = sum(non_free_apps_ratings) / len(non_free_apps_ratings)
-avg_rating_free = sum(free_apps_ratings) / len(free_apps_ratings)
-print(avg_rating_free)
+avg_rating_free = sum(free_apps_ratings) / len(free_apps_ratings)   # Média: soma todos os valores guardados na lista free_apps_ratings e divide pela quantidade(count/len) da lista free_apps_ratings
+print(avg_rating_free)                              # mostra o resultado da variavel avg_rating_free
